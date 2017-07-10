@@ -18,7 +18,7 @@ This AlertOnboarding was inspired by [this amazing dribbble](https://dribbble.co
 </p>
 
 ## INSTALLATION
-####COCOAPODS
+#### COCOAPODS
 ```
 pod 'AlertOnboarding'
 ```
