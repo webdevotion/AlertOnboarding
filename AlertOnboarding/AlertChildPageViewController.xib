@@ -88,7 +88,7 @@
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ejv-jb-Rn0" userLabel="Container">
                         <rect key="frame" x="10" y="594" width="580" height="142"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration" identifier="contentContainer"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="10" identifier="containerHeightConstraint" id="dYR-sr-eDX">
