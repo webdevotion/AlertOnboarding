@@ -98,21 +98,13 @@ class AlertChildPageViewController: UIViewController {
                                                                       multiplier: 1.0,
                                                                       constant: 0)
             
-//            let heightConstraintForContainer = NSLayoutConstraint.init(item: self.contentContainer,
-//                                                                       attribute: .height,
-//                                                                       relatedBy: .equal,
-//                                                                       toItem: nil,
-//                                                                       attribute: .notAnAttribute,
-//                                                                       multiplier: 1,
-//                                                                       constant: 100)
-            
             let widthConstraintForContainer = NSLayoutConstraint.init(item: self.contentContainer,
                                                                       attribute: .width,
                                                                       relatedBy: .equal,
                                                                       toItem: self.view,
                                                                       attribute: .width,
                                                                       multiplier: 1,
-                                                                      constant: -20)
+                                                                      constant: -50)
             
             let bottomContraintsForContainer = NSLayoutConstraint(item: self.contentContainer,
                                                                   attribute: .bottom,
@@ -128,7 +120,7 @@ class AlertChildPageViewController: UIViewController {
                                                                      toItem: self.view,
                                                                      attribute: .left,
                                                                      multiplier: 1,
-                                                                     constant: 10)
+                                                                     constant: 25)
             
             NSLayoutConstraint.activate([horizontalContraintsForContainer,
                                          heightConstraintForContainer,
@@ -168,7 +160,7 @@ class AlertChildPageViewController: UIViewController {
                                                                       toItem: self.view,
                                                                       attribute: .width,
                                                                       multiplier: 1,
-                                                                      constant: -20)
+                                                                      constant: -50)
             
             let bottomContraintsForContainerSub = NSLayoutConstraint(item: subView,
                                                                   attribute: .bottom,
@@ -184,7 +176,7 @@ class AlertChildPageViewController: UIViewController {
                                                                      toItem: self.view,
                                                                      attribute: .left,
                                                                      multiplier: 1,
-                                                                     constant: 10)
+                                                                     constant: 25)
             
             NSLayoutConstraint.activate([horizontalContraintsForContainerSub,
                                          heightConstraintForContainerSub,
