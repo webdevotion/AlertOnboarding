@@ -52,7 +52,7 @@ class AlertChildPageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.contentContainer.layer.cornerRadius = 10
+        self.contentContainer.layer.cornerRadius = 0
 //        self.contentContainer.backgroundColor = UIColor(hue:0.26, saturation:0.82, brightness:0.78, alpha:1.00)
     }
     
