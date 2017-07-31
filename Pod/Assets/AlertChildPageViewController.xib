@@ -68,7 +68,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="751" placeholderIntrinsicWidth="760" placeholderIntrinsicHeight="120" image="tram" translatesAutoresizingMaskIntoConstraints="NO" id="BOp-iF-ff6" customClass="AlertFullWidthImage" customModule="AlertOnboarding">
                                 <rect key="frame" x="0.0" y="0.0" width="800" height="439.66666666666663"/>
-                                <color key="backgroundColor" red="0.49607170179999999" green="1" blue="0.92170956719999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="image"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="7YY-2y-Ts4"/>
