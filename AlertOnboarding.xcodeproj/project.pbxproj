@@ -17,6 +17,7 @@
 		37845A7E1D994D87009B3734 /* AlertChildPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37845A7D1D994D87009B3734 /* AlertChildPageViewController.swift */; };
 		37845A801D994DA6009B3734 /* AlertPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37845A7F1D994DA6009B3734 /* AlertPageViewController.swift */; };
 		37845A821D994DE6009B3734 /* AlertChildPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37845A811D994DE6009B3734 /* AlertChildPageViewController.xib */; };
+		9F78BAB01F2F46B500051A0D /* AlertFullWidthImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F78BAAF1F2F46B500051A0D /* AlertFullWidthImage.swift */; };
 		9FD0C3C41F0FA3CF005717F1 /* ExampleContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD0C3C31F0FA3CF005717F1 /* ExampleContentViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		37845A7F1D994DA6009B3734 /* AlertPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPageViewController.swift; sourceTree = "<group>"; };
 		37845A811D994DE6009B3734 /* AlertChildPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertChildPageViewController.xib; sourceTree = "<group>"; };
 		3FF27CA2DCBC1A2EF739D669 /* Pods-AlertOnboarding.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlertOnboarding.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AlertOnboarding/Pods-AlertOnboarding.debug.xcconfig"; sourceTree = "<group>"; };
+		9F78BAAF1F2F46B500051A0D /* AlertFullWidthImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertFullWidthImage.swift; sourceTree = "<group>"; };
 		9FD0C3C31F0FA3CF005717F1 /* ExampleContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleContentViewController.swift; sourceTree = "<group>"; };
 		DE4EE95DBC5D4A65E2757A1F /* Pods_AlertOnboarding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlertOnboarding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -90,6 +92,7 @@
 				37845A7B1D994D65009B3734 /* AlertOnboarding.swift */,
 				37845A7D1D994D87009B3734 /* AlertChildPageViewController.swift */,
 				37845A7F1D994DA6009B3734 /* AlertPageViewController.swift */,
+				9F78BAAF1F2F46B500051A0D /* AlertFullWidthImage.swift */,
 			);
 			name = Alert;
 			sourceTree = "<group>";
@@ -124,6 +127,7 @@
 				37845A631D994CBA009B3734 /* Resources */,
 				06C991A3B64263DC9C43258F /* [CP] Embed Pods Frameworks */,
 				201C4753BD8EBF1B8F560807 /* [CP] Copy Pods Resources */,
+				9F78BAAE1F2F442400051A0D /* Copy Files to Pod Directory */,
 			);
 			buildRules = (
 			);
@@ -229,6 +233,20 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		9F78BAAE1F2F442400051A0D /* Copy Files to Pod Directory */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Files to Pod Directory";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/publish.sh\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -240,6 +258,7 @@
 				37845A6B1D994CBA009B3734 /* ViewController.swift in Sources */,
 				37845A7E1D994D87009B3734 /* AlertChildPageViewController.swift in Sources */,
 				37845A7C1D994D65009B3734 /* AlertOnboarding.swift in Sources */,
+				9F78BAB01F2F46B500051A0D /* AlertFullWidthImage.swift in Sources */,
 				37845A691D994CBA009B3734 /* AppDelegate.swift in Sources */,
 				9FD0C3C41F0FA3CF005717F1 /* ExampleContentViewController.swift in Sources */,
 			);
