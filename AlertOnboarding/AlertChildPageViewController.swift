@@ -53,7 +53,6 @@ class AlertChildPageViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.contentContainer.layer.cornerRadius = 0
-//        self.contentContainer.backgroundColor = UIColor(hue:0.26, saturation:0.82, brightness:0.78, alpha:1.00)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -70,13 +69,20 @@ class AlertChildPageViewController: UIViewController {
     }
     
     func configureConstraints() {
-
+        assert(self.contentContainer != nil, "There should be a container view")
+        assert(self.contentContainer.subviews.count > 0,"Each viewcontroller should have at least one ( 1 ) subview")
+        
         self.contentContainer.translatesAutoresizingMaskIntoConstraints = false
         self.contentContainer.removeConstraints( self.contentContainer.constraints )
         self.contentContainer.clipsToBounds = true
+        self.contentContainer.backgroundColor = .clear
+        
+        
+        guard let sv = self.contentContainer, sv.subviews.count > 0 else {
+            return
+        }
         
         let subView = self.contentContainer.subviews[0]
-        
         // try to adhere to the height set by the constraint
         // given by the main subcontent view ( container ) in the storyboard
         

@@ -12,10 +12,10 @@ class ViewController: UIViewController, AlertOnboardingDelegate {
     
     var alertView: AlertOnboarding!
     
-    var arrayOfImage = ["onboarding", "graph", "train","graph"]
-    var arrayOfTitle = ["CREATE ACCOUNT", "CHOOSE THE PLANET ACROSS TWO LINES OR EVEN MORE.  IF POSSIBLE.", "DEPARTURE","SWIFTY"]
-    var arrayOfDescription = ["In your profile, you can view the statistics of its operations and the recommandations of friends!",
-                              "Purchase tickets on hot tours to your favorite planet and fly to the most comfortable intergalactic spaceships of best companies. Purchase tickets on hot tours to your favorite planet and fly to the most comfortable intergalactic spaceships of best companies!",
+    var arrayOfImage = ["tram", "graph", "train","graph"]
+    var arrayOfTitle = ["Oh how rude,\nWe totaly forgot to\nintroduce our selves.", "CHOOSE THE PLANET ACROSS TWO LINES OR EVEN MORE.  IF POSSIBLE.", "DEPARTURE","SWIFTY"]
+    var arrayOfDescription = ["In your profile",
+                              "Purchase tickets on hot tours to your favorite planet!",
                               "In the process of flight you will be in cryogenic sleep and supply the body with all the necessary things for life!","This is very Swifty"]
     
     override func viewDidLoad() {

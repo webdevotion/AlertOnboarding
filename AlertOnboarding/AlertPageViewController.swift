@@ -210,6 +210,7 @@ class AlertPageViewController: UIViewController, UIPageViewControllerDataSource,
         pageContentViewController.addChildViewController(vc)
         pageContentViewController.view.addSubview(vc.view)
         pageContentViewController.contentContainer = vc.view
+        pageContentViewController.contentContainer.backgroundColor = .clear
         vc.didMove(toParentViewController: pageContentViewController)
         pageContentViewController.configureConstraints()
         return pageContentViewController
