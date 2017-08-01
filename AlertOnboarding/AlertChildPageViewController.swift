@@ -119,6 +119,7 @@ class AlertChildPageViewController: UIViewController {
                                                                   attribute: .bottom,
                                                                   multiplier: 1.0,
                                                                   constant: 0)
+            bottomContraintsForContainer.identifier = "yAxisForFormContainer"
             
             let leftContraintsForContainer = NSLayoutConstraint.init(item: self.contentContainer,
                                                                      attribute: .left,
