@@ -12,7 +12,7 @@ public protocol AlertOnboardingDelegate {
     func alertOnboardingSkipped(_ currentStep: Int, maxStep: Int)
     func alertOnboardingCompleted()
     func alertOnboardingNext(_ nextStep: Int)
-    func alertOnboardingAllowedToContinue(completion: (Bool) -> Void)
+    func alertOnboardingAllowedToContinue(_ completion: ((Bool) -> Void)?)
 }
 
 open class AlertOnboarding: UIView, AlertPageViewDelegate {
@@ -242,7 +242,7 @@ open class AlertOnboarding: UIView, AlertPageViewDelegate {
         
         self.delegate?.alertOnboardingAllowedToContinue { allowed in
             if( allowed ){
-                canGoToNextPage()
+                self.canGoToNextPage()
                 return
             }
         }
