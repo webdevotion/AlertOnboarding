@@ -12,6 +12,7 @@ public protocol AlertOnboardingDelegate {
     func alertOnboardingSkipped(_ currentStep: Int, maxStep: Int)
     func alertOnboardingCompleted()
     func alertOnboardingNext(_ nextStep: Int)
+    func alertOnboardingAllowedToContinue(completion: (Bool) -> Void)
 }
 
 open class AlertOnboarding: UIView, AlertPageViewDelegate {
@@ -237,8 +238,19 @@ open class AlertOnboarding: UIView, AlertPageViewDelegate {
     //MARK: BUTTON ACTIONS ---------------------------------
     
     func onClick(){
+        // is user allowed to go to next page?
+        
+        self.delegate?.alertOnboardingAllowedToContinue { allowed in
+            if( allowed ){
+                canGoToNextPage()
+                return
+            }
+        }
+    }
+    
+    func canGoToNextPage(){
         // try to go to the next page
-        // if there are no pages left, 
+        // if there are no pages left,
         // close the onboarding view
         if !self.container.nextPage() {
             self.hide()

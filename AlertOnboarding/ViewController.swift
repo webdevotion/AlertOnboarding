@@ -68,4 +68,8 @@ class ViewController: UIViewController, AlertOnboardingDelegate {
         
     }
     
+    func alertOnboardingAllowedToContinue(completion: (Bool) -> Void) {
+        completion(true) // test condition and return true or false
+    }
+    
 }
