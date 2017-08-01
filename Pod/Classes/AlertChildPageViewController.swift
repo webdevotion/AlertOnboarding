@@ -74,7 +74,7 @@ class AlertChildPageViewController: UIViewController {
         
         self.contentContainer.translatesAutoresizingMaskIntoConstraints = false
         self.contentContainer.removeConstraints( self.contentContainer.constraints )
-        self.contentContainer.clipsToBounds = true
+        self.contentContainer.clipsToBounds = false
         self.contentContainer.backgroundColor = .clear
         
         
