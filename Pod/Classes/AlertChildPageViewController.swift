@@ -85,8 +85,10 @@ class AlertChildPageViewController: UIViewController {
         let subView = self.contentContainer.subviews[0]
         // try to adhere to the height set by the constraint
         // given by the main subcontent view ( container ) in the storyboard
-        
-        if let heightConstraint = subView.constraints.first(where: { $0.identifier == "containerHeight" }) {
+
+        if let heightConstraint = subView.constraints.first(where: { $0.identifier == "containerHeight" }),
+            let theSuperview = self.contentContainer.superview,
+            self.view == theSuperview {
             let heightConstraintForContainer = NSLayoutConstraint.init(item: self.contentContainer,
                                                                        attribute: .height,
                                                                        relatedBy: .equal,
