@@ -76,8 +76,7 @@ class AlertChildPageViewController: UIViewController {
         self.contentContainer.removeConstraints( self.contentContainer.constraints )
         self.contentContainer.clipsToBounds = false
         self.contentContainer.backgroundColor = .clear
-        
-        
+
         guard let sv = self.contentContainer, sv.subviews.count > 0 else {
             return
         }

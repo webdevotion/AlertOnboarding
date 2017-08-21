@@ -49,6 +49,15 @@ class ViewController: UIViewController, AlertOnboardingDelegate {
 
         self.alertView.percentageRatioHeight = 1.0
         self.alertView.percentageRatioWidth = 1.0
+        
+        
+        
+        let attributedString = NSMutableAttributedString(string: "By creating an account, you accept our terms of use & privacy policy")
+        attributedString.addAttribute(NSFontAttributeName, value: UIFont.boldSystemFont(ofSize: 10.0), range: NSRange())
+        attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.black, range: NSRange(location: 39, length: 12))
+        attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.black, range: NSRange(location: 54, length: 14))
+        attributedString.append(attributedString)
+        self.alertView.legalText = attributedString
         self.alertView.show(animated:false)
     }
     

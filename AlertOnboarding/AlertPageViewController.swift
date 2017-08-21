@@ -56,6 +56,17 @@ struct PageViewControllerTransitions {
     var nextIndex: Int
 }
 
+extension UIPageViewController {
+    var pageControl: UIPageControl? {
+        for view in view.subviews {
+            if view is UIPageControl {
+                return view as? UIPageControl
+            }
+        }
+        return nil
+    }
+}
+
 extension AlertPageViewController {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         return AlertOnboardingPageIndex.INVALID_PAGE_INDEX  == currentStep.next() ? nil : self.viewControllerAtIndex( currentStep.next() )
@@ -163,6 +174,10 @@ class AlertPageViewController: UIViewController, UIPageViewControllerDataSource,
         self.view.addSubview(self.pageControl)
         
         self.pageController.didMove(toParentViewController: self)
+        
+        self.pageController.pageControl?.isHidden = true
+        
+        self.pageController.view.frame = CGRect.init(x:0, y:0, width: self.view.frame.size.width, height: self.view.frame.size.height+40);
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -260,13 +275,13 @@ class AlertPageViewController: UIViewController, UIPageViewControllerDataSource,
         self.pageControl.numberOfPages = self.currentStep.maximum + 1
         self.pageControl.currentPage = self.currentStep.value
         self.pageControl.isEnabled = false
-        
+
         self.configureConstraintsForPageControl()
     }
     
     fileprivate func configurePageViewController(){
         self.pageController = UIPageViewController(transitionStyle: UIPageViewControllerTransitionStyle.scroll, navigationOrientation: UIPageViewControllerNavigationOrientation.horizontal, options: nil)
-        self.pageController.view.backgroundColor = UIColor.clear
+        self.pageController.view.backgroundColor = .clear
         
         if #available(iOS 9.0, *) {
             let pageControl = UIPageControl.appearance(whenContainedInInstancesOf: [AlertPageViewController.self])

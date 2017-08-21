@@ -27,6 +27,7 @@ open class AlertOnboarding: UIView, AlertPageViewDelegate {
     open var buttonBottom: UIButton!
     fileprivate var container: AlertPageViewController!
     open var background: UIView!
+    open var legalTextLabel: UILabel!
     
     
     //PUBLIC VARS   ------------------------
@@ -49,6 +50,7 @@ open class AlertOnboarding: UIView, AlertPageViewDelegate {
     
     open var titleSkipButton = "SKIP"
     open var titleGotItButton = "GOT IT !"
+    open var legalText: NSAttributedString = NSAttributedString()
     
     open var delegate: AlertOnboardingDelegate?
     
@@ -91,10 +93,13 @@ open class AlertOnboarding: UIView, AlertPageViewDelegate {
         self.buttonBottom.setTitleColor(colorButtonText, for: UIControlState())
         self.buttonBottom.setTitle(self.titleSkipButton, for: UIControlState())
         
+        self.legalTextLabel.attributedText = self.legalText
+        
         self.container = AlertPageViewController(arrayOfImage: arrayOfImage, arrayOfTitle: arrayOfTitle, arrayOfDescription: arrayOfDescription, arrayOfContainers: self.arrayOfContainers,alertView: self)
         self.container.delegate = self
         self.insertSubview(self.container.view, aboveSubview: self)
         self.insertSubview(self.buttonBottom, aboveSubview: self)
+        self.insertSubview(self.legalTextLabel, aboveSubview: self)
         
         // Only show once
         if self.superview != nil {
@@ -139,10 +144,15 @@ open class AlertOnboarding: UIView, AlertPageViewDelegate {
     //MARK: FOR CONFIGURATION    --------------------------------------
     fileprivate func configure(cornerRadius:CGFloat=4.0) {
         
-        self.buttonBottom = UIButton(frame: CGRect(x: 0,y: 0, width: 0, height: 0))
+        self.buttonBottom = UIButton(frame: .zero)
         self.buttonBottom.titleLabel?.font = UIFont(name: "Avenir-Black", size: 15)
         self.buttonBottom.addTarget(self, action: #selector(AlertOnboarding.onClick), for: .touchUpInside)
         self.buttonBottom.layer.cornerRadius = cornerRadius
+        
+        self.legalTextLabel = UILabel(frame: .zero)
+        self.legalTextLabel.numberOfLines = 0
+        self.legalTextLabel.backgroundColor = .clear
+        
         
         self.background = UIView(frame: CGRect(x: 0,y: 0, width: 0, height: 0))
         self.background.backgroundColor = UIColor.black
@@ -161,6 +171,7 @@ open class AlertOnboarding: UIView, AlertPageViewDelegate {
         self.buttonBottom.translatesAutoresizingMaskIntoConstraints = false
         self.container.view.translatesAutoresizingMaskIntoConstraints = false
         self.background.translatesAutoresizingMaskIntoConstraints = false
+        self.legalTextLabel.translatesAutoresizingMaskIntoConstraints = false
         
         self.removeConstraints(self.constraints)
         self.buttonBottom.removeConstraints(self.buttonBottom.constraints)
@@ -170,31 +181,41 @@ open class AlertOnboarding: UIView, AlertPageViewDelegate {
         widthForAlertView = UIScreen.main.bounds.width*percentageRatioWidth
         
         //Constraints for alertview
-        let horizontalContraintsAlertView = NSLayoutConstraint(item: self, attribute: .centerXWithinMargins, relatedBy: .equal, toItem: superView, attribute: .centerXWithinMargins, multiplier: 1.0, constant: 0)
-        let verticalContraintsAlertView = NSLayoutConstraint(item: self, attribute:.centerYWithinMargins, relatedBy: .equal, toItem: superView, attribute: .centerYWithinMargins, multiplier: 1.0, constant: 0)
-        let heightConstraintForAlertView = NSLayoutConstraint.init(item: self, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: heightForAlertView)
-        let widthConstraintForAlertView = NSLayoutConstraint.init(item: self, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: widthForAlertView)
+        let horizontalContraintsAlertView   = NSLayoutConstraint(item: self, attribute: .centerXWithinMargins, relatedBy: .equal, toItem: superView, attribute: .centerXWithinMargins, multiplier: 1.0, constant: 0)
+        let verticalContraintsAlertView     = NSLayoutConstraint(item: self, attribute:.centerYWithinMargins, relatedBy: .equal, toItem: superView, attribute: .centerYWithinMargins, multiplier: 1.0, constant: 0)
+        let heightConstraintForAlertView    = NSLayoutConstraint(item: self, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: heightForAlertView)
+        let widthConstraintForAlertView     = NSLayoutConstraint(item: self, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: widthForAlertView)
         
-        //Constraints for container
-        let horizontalContraintsForContainer = NSLayoutConstraint(item: self.container.view, attribute:.centerXWithinMargins, relatedBy: .equal, toItem: self, attribute: .centerXWithinMargins, multiplier: 1.0, constant: 0)
-        let heightConstraintForContainer = NSLayoutConstraint.init(item: self.container.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: heightForAlertView*0.9)
-        let widthConstraintForContainer = NSLayoutConstraint.init(item: self.container.view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: widthForAlertView)
-        let pinContraintsForContainer = NSLayoutConstraint(item: self.container.view, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: 0)
+        //Constraints for legal text
+        let verticalContraintsLegalText     = NSLayoutConstraint(item: self.legalTextLabel, attribute:.centerXWithinMargins, relatedBy: .equal, toItem: self, attribute: .centerXWithinMargins, multiplier: 1.0, constant: 0)
+        let heightConstraintForLegalText    = NSLayoutConstraint(item: self.legalTextLabel, attribute: .height, relatedBy: .greaterThanOrEqual, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 0.0)
+        let widthConstraintForLegalText     = NSLayoutConstraint(item: self.legalTextLabel, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: widthForAlertView - 50.0)
+        let pinContraintsButtonLegalText    = NSLayoutConstraint(item: self.legalTextLabel, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: -12.0)
         
         //Constraints for button
-        let verticalContraintsButtonBottom = NSLayoutConstraint(item: self.buttonBottom, attribute:.centerXWithinMargins, relatedBy: .equal, toItem: self, attribute: .centerXWithinMargins, multiplier: 1.0, constant: 0)
-        let heightConstraintForButtonBottom = NSLayoutConstraint.init(item: self.buttonBottom, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 40.0)
-        let widthConstraintForButtonBottom = NSLayoutConstraint.init(item: self.buttonBottom, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: widthForAlertView - 50.0)
-        let pinContraintsButtonBottom = NSLayoutConstraint(item: self.buttonBottom, attribute: .top, relatedBy: .equal, toItem: self.container.view, attribute: .bottom, multiplier: 1.0, constant: 0.0)
+        let verticalContraintsButtonBottom  = NSLayoutConstraint(item: self.buttonBottom, attribute:.centerXWithinMargins, relatedBy: .equal, toItem: self, attribute: .centerXWithinMargins, multiplier: 1.0, constant: 0)
+        let heightConstraintForButtonBottom = NSLayoutConstraint(item: self.buttonBottom, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 40.0)
+        let widthConstraintForButtonBottom  = NSLayoutConstraint(item: self.buttonBottom, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: widthForAlertView - 50.0)
+        let pinContraintsButtonBottom       = NSLayoutConstraint(item: self.buttonBottom, attribute: .bottom, relatedBy: .equal, toItem: self.legalTextLabel, attribute: .top, multiplier: 1.0, constant: -12.0)
+        
+        
+        //Constraints for container
+        let horizontalContraintForContainer = NSLayoutConstraint(item: self.container.view, attribute:.centerXWithinMargins, relatedBy: .equal, toItem: self, attribute: .centerXWithinMargins, multiplier: 1.0, constant: 0)
+        // let cHeight = heightForAlertView - heightConstraintForButtonBottom.constant -
+        // let heightConstraintForContainer = NSLayoutConstraint.init(item: self.container.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: cHeight)
+        let widthConstraintForContainer     = NSLayoutConstraint(item: self.container.view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: widthForAlertView)
+        let pinContraintsForContainer1      = NSLayoutConstraint(item: self.container.view, attribute: .bottom, relatedBy: .equal, toItem: self.buttonBottom, attribute: .top, multiplier: 1.0, constant: -12.0)
+        let pinContraintsForContainer2      = NSLayoutConstraint(item: self.container.view, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: 0.0)
         
         //Constraints for background
         let widthContraintsForBackground = NSLayoutConstraint(item: self.background, attribute:.width, relatedBy: .equal, toItem: superView, attribute: .width, multiplier: 1, constant: 0)
-        let heightConstraintForBackground = NSLayoutConstraint.init(item: self.background, attribute: .height, relatedBy: .equal, toItem: superView, attribute: .height, multiplier: 1, constant: 0)
+        let heightConstraintForBackground = NSLayoutConstraint(item: self.background, attribute: .height, relatedBy: .equal, toItem: superView, attribute: .height, multiplier: 1, constant: 0)
         
         NSLayoutConstraint.activate([horizontalContraintsAlertView, verticalContraintsAlertView,heightConstraintForAlertView, widthConstraintForAlertView,
                                      verticalContraintsButtonBottom, heightConstraintForButtonBottom, widthConstraintForButtonBottom, pinContraintsButtonBottom,
-                                     horizontalContraintsForContainer, heightConstraintForContainer, widthConstraintForContainer, pinContraintsForContainer,
-                                     widthContraintsForBackground, heightConstraintForBackground])
+                                     horizontalContraintForContainer, widthConstraintForContainer, pinContraintsForContainer1, pinContraintsForContainer2,
+                                     widthContraintsForBackground, heightConstraintForBackground,
+                                     verticalContraintsLegalText, heightConstraintForLegalText, widthConstraintForLegalText, pinContraintsButtonLegalText])
     }
     
     //MARK: FOR ANIMATIONS ---------------------------------
