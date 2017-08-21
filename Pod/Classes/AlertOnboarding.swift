@@ -188,7 +188,7 @@ open class AlertOnboarding: UIView, AlertPageViewDelegate {
         //Constraints for legal text
         self.legalTextView.isScrollEnabled = false
         let megasize = self.legalTextView.sizeThatFits(CGSize(width: widthForAlertView, height: CGFloat.greatestFiniteMagnitude))
-        self.legalTextView.backgroundColor = .yellow
+        
         let verticalContraintsLegalText     = NSLayoutConstraint(item: self.legalTextView, attribute:.centerXWithinMargins, relatedBy: .equal, toItem: self, attribute: .centerXWithinMargins, multiplier: 1.0, constant: 0)
         let heightConstraintForLegalText    = NSLayoutConstraint(item: self.legalTextView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: megasize.height)
         let widthConstraintForLegalText     = NSLayoutConstraint(item: self.legalTextView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: widthForAlertView - 50.0)
