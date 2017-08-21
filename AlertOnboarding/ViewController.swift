@@ -56,7 +56,7 @@ class ViewController: UIViewController, AlertOnboardingDelegate {
         attributedString.addAttribute(NSFontAttributeName, value: UIFont.boldSystemFont(ofSize: 10.0), range: NSRange())
         attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.black, range: NSRange(location: 39, length: 12))
         attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.black, range: NSRange(location: 54, length: 14))
-        attributedString.append(attributedString)
+//        attributedString.append(attributedString)
         self.alertView.legalText = attributedString
         self.alertView.show(animated:false)
     }
