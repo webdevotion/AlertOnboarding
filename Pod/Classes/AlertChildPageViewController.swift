@@ -95,6 +95,7 @@ class AlertChildPageViewController: UIViewController {
                                                                        attribute: .notAnAttribute,
                                                                        multiplier: 1,
                                                                        constant: heightConstraint.constant)
+            heightConstraintForContainer.priority = 999
 
             //Constraints for container
             let horizontalContraintsForContainer = NSLayoutConstraint(item: self.contentContainer,
@@ -143,7 +144,7 @@ class AlertChildPageViewController: UIViewController {
                                                                        toItem: nil,
                                                                        attribute: .notAnAttribute,
                                                                        multiplier: 1,
-                                                                       constant: heightConstraint.constant)
+                                                                       constant: heightConstraint.constant )
             
             //Constraints for container
             let horizontalContraintsForContainerSub = NSLayoutConstraint(item: subView,
@@ -176,7 +177,7 @@ class AlertChildPageViewController: UIViewController {
                                                                   toItem: self.view,
                                                                   attribute: .bottom,
                                                                   multiplier: 1.0,
-                                                                  constant: 0)
+                                                                  constant: -40)
             
             let leftContraintsForContainerSub = NSLayoutConstraint.init(item: subView,
                                                                      attribute: .left,
@@ -198,7 +199,7 @@ class AlertChildPageViewController: UIViewController {
                                                                      toItem: self.contentContainer,
                                                                      attribute: .top,
                                                                      multiplier: 1.0,
-                                                                     constant: 0)
+                                                                     constant: -40)
             
             NSLayoutConstraint.activate([bottomContraintsForContainerImageContainer])
             
