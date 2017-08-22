@@ -289,7 +289,8 @@ class AlertPageViewController: UIViewController, UIPageViewControllerDataSource,
             pageControl.currentPageIndicatorTintColor = UIColor.clear
         }
         
-        self.pageController.dataSource = self
+        // disable swiping gesture and control screen flow thru our onboarding delegate
+        //self.pageController.dataSource = self
         self.pageController.delegate = self
         
         self.addChildViewController(self.pageController)
