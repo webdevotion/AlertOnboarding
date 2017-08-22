@@ -97,6 +97,8 @@ public class AlertFullWidthImage : UIImageView
             c.priority = (UILayoutPriorityDefaultLow + UILayoutPriorityFittingSizeLevel) / 2.0
             self.addConstraint(c)
             self.aspectRatioConstraint = c
+            
+            self.isHidden = imageSize.height <= 30
         }
     }
 }

@@ -56,6 +56,7 @@ class AlertChildPageViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        self.view.backgroundColor = UIColor.clear
         super.viewDidAppear(animated)
     }
     
@@ -88,6 +89,10 @@ class AlertChildPageViewController: UIViewController {
         if let heightConstraint = subView.constraints.first(where: { $0.identifier == "containerHeight" }),
             let theSuperview = self.contentContainer.superview,
             self.view == theSuperview {
+            
+            let maxHeight = UIScreen.main.bounds.size.height
+            heightConstraint.constant = min(heightConstraint.constant, maxHeight)
+            
             let heightConstraintForContainer = NSLayoutConstraint.init(item: self.contentContainer,
                                                                        attribute: .height,
                                                                        relatedBy: .equal,
@@ -120,7 +125,7 @@ class AlertChildPageViewController: UIViewController {
                                                                   toItem: self.view,
                                                                   attribute: .bottom,
                                                                   multiplier: 1.0,
-                                                                  constant: 0)
+                                                                  constant: -40)
             bottomContraintsForContainer.identifier = "yAxisForFormContainer"
             
             let leftContraintsForContainer = NSLayoutConstraint.init(item: self.contentContainer,
@@ -137,14 +142,14 @@ class AlertChildPageViewController: UIViewController {
                                          leftContraintsForContainer,
                                          bottomContraintsForContainer])
             
-            
+            // height of main content in container
             let heightConstraintForContainerSub = NSLayoutConstraint.init(item: subView,
                                                                        attribute: .height,
                                                                        relatedBy: .equal,
                                                                        toItem: nil,
                                                                        attribute: .notAnAttribute,
                                                                        multiplier: 1,
-                                                                       constant: heightConstraint.constant )
+                                                                       constant: heightConstraint.constant - 40.0 )
             
             //Constraints for container
             let horizontalContraintsForContainerSub = NSLayoutConstraint(item: subView,
@@ -171,6 +176,7 @@ class AlertChildPageViewController: UIViewController {
                                                                       multiplier: 1,
                                                                       constant: -50)
             
+            // y  position of main content in container
             let bottomContraintsForContainerSub = NSLayoutConstraint(item: subView,
                                                                   attribute: .bottom,
                                                                   relatedBy: .equal,
@@ -199,7 +205,7 @@ class AlertChildPageViewController: UIViewController {
                                                                      toItem: self.contentContainer,
                                                                      attribute: .top,
                                                                      multiplier: 1.0,
-                                                                     constant: -40)
+                                                                     constant: 0)
             
             NSLayoutConstraint.activate([bottomContraintsForContainerImageContainer])
             

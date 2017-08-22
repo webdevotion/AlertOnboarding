@@ -33,7 +33,7 @@
                                 <color key="textColor" red="0.6705882353" green="0.69411764710000001" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="751" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eh1-05-M15" customClass="AlertOnboardingTopAlignedLabel" customModule="AlertOnboarding">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="1000" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eh1-05-M15" customClass="AlertOnboardingTopAlignedLabel" customModule="AlertOnboarding">
                                 <rect key="frame" x="30" y="91" width="740" height="53.333333333333343"/>
                                 <accessibility key="accessibilityConfiguration" identifier="descriptionLabel"/>
                                 <constraints>
@@ -60,7 +60,7 @@
                             <constraint firstAttribute="trailing" secondItem="64e-Bi-ts0" secondAttribute="trailing" constant="30" id="d3G-7h-Ze7"/>
                             <constraint firstItem="64e-Bi-ts0" firstAttribute="top" secondItem="ozM-3f-JWg" secondAttribute="top" constant="56" id="sdC-UL-pL3"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="skN-mR-8du"/>
-                            <constraint firstItem="eh1-05-M15" firstAttribute="top" secondItem="64e-Bi-ts0" secondAttribute="bottom" priority="800" constant="10" identifier="descriptionTopToTitleBottom" id="yF6-Kd-cVd"/>
+                            <constraint firstItem="eh1-05-M15" firstAttribute="top" secondItem="64e-Bi-ts0" secondAttribute="bottom" constant="10" identifier="descriptionTopToTitleBottom" id="yF6-Kd-cVd"/>
                         </constraints>
                     </view>
                     <view clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="261" verticalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="idc-BF-yRA" userLabel="View 1:2">
@@ -82,32 +82,26 @@
                             <constraint firstItem="BOp-iF-ff6" firstAttribute="height" secondItem="idc-BF-yRA" secondAttribute="height" id="73t-bj-LQY"/>
                             <constraint firstItem="BOp-iF-ff6" firstAttribute="width" secondItem="idc-BF-yRA" secondAttribute="width" id="JHk-fL-0Ei"/>
                             <constraint firstItem="BOp-iF-ff6" firstAttribute="centerX" secondItem="idc-BF-yRA" secondAttribute="centerX" id="MT2-j5-Pc0"/>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="900" constant="30" id="cO2-RB-f44"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="cO2-RB-f44"/>
                             <constraint firstItem="BOp-iF-ff6" firstAttribute="top" relation="greaterThanOrEqual" secondItem="idc-BF-yRA" secondAttribute="top" priority="900" id="fCl-3b-u83"/>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="900" constant="30" id="m1X-zU-EAc"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" id="m1X-zU-EAc"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ejv-jb-Rn0" userLabel="Container">
-                        <rect key="frame" x="10" y="594" width="780" height="142"/>
+                    <view contentMode="scaleToFill" verticalHuggingPriority="260" verticalCompressionResistancePriority="740" translatesAutoresizingMaskIntoConstraints="NO" id="Ejv-jb-Rn0" userLabel="Container">
+                        <rect key="frame" x="10" y="594" width="780" height="182"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration" identifier="contentContainer"/>
                         <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="10" identifier="containerHeightConstraint" id="dYR-sr-eDX">
-                                <variation key="widthClass=compact" constant="10"/>
-                            </constraint>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="10" identifier="containerHeightConstraint" id="dYR-sr-eDX"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="dYR-sr-eDX"/>
                             </mask>
                         </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="constraints">
-                                <include reference="dYR-sr-eDX"/>
-                            </mask>
-                        </variation>
                     </view>
                 </subviews>
+                <color key="backgroundColor" red="0.96812958872117161" green="1" blue="0.28819343623824556" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <accessibility key="accessibilityConfiguration" identifier="mainView"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="ozM-3f-JWg" secondAttribute="trailing" identifier="a" id="1CK-ia-Nf8"/>
@@ -119,8 +113,8 @@
                     <constraint firstItem="idc-BF-yRA" firstAttribute="trailing" secondItem="ozM-3f-JWg" secondAttribute="trailing" id="U5a-k7-Zam"/>
                     <constraint firstItem="Ejv-jb-Rn0" firstAttribute="top" secondItem="xgP-oi-YXV" secondAttribute="top" priority="300" constant="594" id="Vav-Us-1pu"/>
                     <constraint firstItem="ozM-3f-JWg" firstAttribute="leading" secondItem="xgP-oi-YXV" secondAttribute="leading" identifier="c" id="Zl0-b6-ppK"/>
-                    <constraint firstAttribute="bottom" secondItem="Ejv-jb-Rn0" secondAttribute="bottom" id="nIg-D3-8VI"/>
-                    <constraint firstItem="idc-BF-yRA" firstAttribute="bottom" secondItem="Ejv-jb-Rn0" secondAttribute="top" identifier="h" id="okV-ap-azA"/>
+                    <constraint firstAttribute="bottom" secondItem="Ejv-jb-Rn0" secondAttribute="bottom" constant="-40" id="nIg-D3-8VI"/>
+                    <constraint firstItem="idc-BF-yRA" firstAttribute="bottom" secondItem="Ejv-jb-Rn0" secondAttribute="top" priority="800" identifier="h" id="okV-ap-azA"/>
                 </constraints>
                 <variation key="default">
                     <mask key="subviews">
