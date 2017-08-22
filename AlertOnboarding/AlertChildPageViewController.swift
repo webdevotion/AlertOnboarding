@@ -46,7 +46,7 @@ class AlertChildPageViewController: UIViewController {
         }
         
         get {
-            return max(150.0,_containerHeight)
+            return max(200.0,_containerHeight)
         }
     }
     
