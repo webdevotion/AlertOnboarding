@@ -18,6 +18,7 @@
 		37845A801D994DA6009B3734 /* AlertPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37845A7F1D994DA6009B3734 /* AlertPageViewController.swift */; };
 		37845A821D994DE6009B3734 /* AlertChildPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37845A811D994DE6009B3734 /* AlertChildPageViewController.xib */; };
 		9F78BAB01F2F46B500051A0D /* AlertFullWidthImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F78BAAF1F2F46B500051A0D /* AlertFullWidthImage.swift */; };
+		9FC2626C1F4D5DE8000BE242 /* ExampleContentViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC2626B1F4D5DE8000BE242 /* ExampleContentViewController2.swift */; };
 		9FD0C3C41F0FA3CF005717F1 /* ExampleContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD0C3C31F0FA3CF005717F1 /* ExampleContentViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		37845A811D994DE6009B3734 /* AlertChildPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertChildPageViewController.xib; sourceTree = "<group>"; };
 		3FF27CA2DCBC1A2EF739D669 /* Pods-AlertOnboarding.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlertOnboarding.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AlertOnboarding/Pods-AlertOnboarding.debug.xcconfig"; sourceTree = "<group>"; };
 		9F78BAAF1F2F46B500051A0D /* AlertFullWidthImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertFullWidthImage.swift; sourceTree = "<group>"; };
+		9FC2626B1F4D5DE8000BE242 /* ExampleContentViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleContentViewController2.swift; sourceTree = "<group>"; };
 		9FD0C3C31F0FA3CF005717F1 /* ExampleContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleContentViewController.swift; sourceTree = "<group>"; };
 		DE4EE95DBC5D4A65E2757A1F /* Pods_AlertOnboarding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlertOnboarding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -77,6 +79,7 @@
 				37845A681D994CBA009B3734 /* AppDelegate.swift */,
 				37845A6A1D994CBA009B3734 /* ViewController.swift */,
 				9FD0C3C31F0FA3CF005717F1 /* ExampleContentViewController.swift */,
+				9FC2626B1F4D5DE8000BE242 /* ExampleContentViewController2.swift */,
 				37845A6C1D994CBA009B3734 /* Main.storyboard */,
 				37845A6F1D994CBA009B3734 /* Assets.xcassets */,
 				37845A711D994CBA009B3734 /* LaunchScreen.storyboard */,
@@ -260,6 +263,7 @@
 				37845A7C1D994D65009B3734 /* AlertOnboarding.swift in Sources */,
 				9F78BAB01F2F46B500051A0D /* AlertFullWidthImage.swift in Sources */,
 				37845A691D994CBA009B3734 /* AppDelegate.swift in Sources */,
+				9FC2626C1F4D5DE8000BE242 /* ExampleContentViewController2.swift in Sources */,
 				9FD0C3C41F0FA3CF005717F1 /* ExampleContentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

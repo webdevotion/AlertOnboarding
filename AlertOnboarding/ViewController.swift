@@ -20,7 +20,7 @@ class ViewController: UIViewController, AlertOnboardingDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        alertView = AlertOnboarding(arrayOfImage: arrayOfImage, arrayOfTitle: arrayOfTitle, arrayOfDescription: arrayOfDescription, arrayOfContainers: [self.contentExample(), self.contentExample(), self.contentExample(),self.contentExample()])
+        alertView = AlertOnboarding(arrayOfImage: arrayOfImage, arrayOfTitle: arrayOfTitle, arrayOfDescription: arrayOfDescription, arrayOfContainers: [self.contentExample(0), self.contentExample(1), self.contentExample(1),self.contentExample(0)])
         alertView.delegate = self   
     }
     
@@ -29,10 +29,15 @@ class ViewController: UIViewController, AlertOnboardingDelegate {
         self.onTouch(self)
     }
     
-    func contentExample() -> UIViewController {
+    func contentExample(_ index:Int) -> UIViewController {
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "exampleContent")
-        return vc
+
+        switch index {
+        case 1:
+            return sb.instantiateViewController(withIdentifier: "exampleContent2")
+        default:
+            return sb.instantiateViewController(withIdentifier: "exampleContent")
+        }
     }
     
     @IBAction func onTouch(_ sender: AnyObject) {

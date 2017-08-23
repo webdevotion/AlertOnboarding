@@ -20,10 +20,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="800" height="736"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="800" placeholderIntrinsicHeight="30" translatesAutoresizingMaskIntoConstraints="NO" id="ozM-3f-JWg" userLabel="View 2:2">
+                    <view contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" placeholderIntrinsicWidth="800" placeholderIntrinsicHeight="30" translatesAutoresizingMaskIntoConstraints="NO" id="ozM-3f-JWg" userLabel="View 2:2">
                         <rect key="frame" x="0.0" y="0.0" width="800" height="154.33333333333334"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="CHOOSE THE PLANET" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="64e-Bi-ts0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="CHOOSE THE PLANET" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="64e-Bi-ts0">
                                 <rect key="frame" x="30" y="56" width="740" height="25"/>
                                 <accessibility key="accessibilityConfiguration" identifier="titleLabel"/>
                                 <constraints>
@@ -33,7 +33,7 @@
                                 <color key="textColor" red="0.6705882353" green="0.69411764710000001" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="1000" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eh1-05-M15" customClass="AlertOnboardingTopAlignedLabel" customModule="AlertOnboarding">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="751" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eh1-05-M15" customClass="AlertOnboardingTopAlignedLabel" customModule="AlertOnboarding">
                                 <rect key="frame" x="30" y="91" width="740" height="53.333333333333343"/>
                                 <accessibility key="accessibilityConfiguration" identifier="descriptionLabel"/>
                                 <constraints>
@@ -66,12 +66,12 @@
                     <view clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="261" verticalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="idc-BF-yRA" userLabel="View 1:2">
                         <rect key="frame" x="0.0" y="154.33333333333331" width="800" height="439.66666666666669"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="751" placeholderIntrinsicWidth="760" placeholderIntrinsicHeight="120" image="tram" translatesAutoresizingMaskIntoConstraints="NO" id="BOp-iF-ff6" customClass="AlertFullWidthImage" customModule="AlertOnboarding">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="751" placeholderIntrinsicWidth="760" placeholderIntrinsicHeight="120" image="train" translatesAutoresizingMaskIntoConstraints="NO" id="BOp-iF-ff6" customClass="AlertFullWidthImage" customModule="AlertOnboarding">
                                 <rect key="frame" x="0.0" y="0.0" width="800" height="439.66666666666663"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="image"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="7YY-2y-Ts4"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" id="7YY-2y-Ts4"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -82,7 +82,7 @@
                             <constraint firstItem="BOp-iF-ff6" firstAttribute="height" secondItem="idc-BF-yRA" secondAttribute="height" id="73t-bj-LQY"/>
                             <constraint firstItem="BOp-iF-ff6" firstAttribute="width" secondItem="idc-BF-yRA" secondAttribute="width" id="JHk-fL-0Ei"/>
                             <constraint firstItem="BOp-iF-ff6" firstAttribute="centerX" secondItem="idc-BF-yRA" secondAttribute="centerX" id="MT2-j5-Pc0"/>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="cO2-RB-f44"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" id="cO2-RB-f44"/>
                             <constraint firstItem="BOp-iF-ff6" firstAttribute="top" relation="greaterThanOrEqual" secondItem="idc-BF-yRA" secondAttribute="top" priority="900" id="fCl-3b-u83"/>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" id="m1X-zU-EAc"/>
                         </constraints>
@@ -101,7 +101,6 @@
                         </variation>
                     </view>
                 </subviews>
-                <color key="backgroundColor" red="0.96812958872117161" green="1" blue="0.28819343623824556" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <accessibility key="accessibilityConfiguration" identifier="mainView"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="ozM-3f-JWg" secondAttribute="trailing" identifier="a" id="1CK-ia-Nf8"/>
@@ -157,6 +156,6 @@
         </viewController>
     </objects>
     <resources>
-        <image name="tram" width="320" height="84"/>
+        <image name="train" width="169" height="221"/>
     </resources>
 </document>
