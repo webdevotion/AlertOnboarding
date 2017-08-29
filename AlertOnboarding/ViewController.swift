@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController, AlertOnboardingDelegate {
-    
+
     var alertView: AlertOnboarding!
     
     var arrayOfImage = ["tram", "graph", "train","graph"]
@@ -82,7 +82,15 @@ class ViewController: UIViewController, AlertOnboardingDelegate {
         
     }
     
+    func alertOnboardingPrev(_ prevStep: Int) {
+        
+    }
+    
     func alertOnboardingAllowedToContinue(_ completion: ((Bool) -> Void)?) {
+        completion?(true) // test condition and return true or false
+    }
+    
+    func alertOnboardingAllowedToGoBack(_ completion: ((Bool) -> Void)?) {
         completion?(true) // test condition and return true or false
     }
     

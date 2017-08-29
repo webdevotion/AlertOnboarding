@@ -30,6 +30,12 @@ struct AlertOnboardingPageIndex {
         }
     }
     
+    var isFirstPageIndex: Bool {
+        get {
+            return self.value == self.minimum
+        }
+    }
+    
     // always zero, negative page indexes do not exist, ... yet
     let minimum : Int = 0
     
@@ -203,6 +209,21 @@ class AlertPageViewController: UIViewController, UIPageViewControllerDataSource,
         
         self.currentStep.value = nextIndex
         self.refresh()
+        return true
+    }
+    
+    func prevPage() -> Bool {
+        if self.currentStep.isFirstPageIndex {
+            return false
+        }
+        
+        let prevIndex = self.currentStep.prev()
+        if( prevIndex == AlertOnboardingPageIndex.INVALID_PAGE_INDEX ){
+            return false
+        }
+        
+        self.currentStep.value = prevIndex
+        self.refresh(animated: true, direction: .reverse)
         return true
     }
     

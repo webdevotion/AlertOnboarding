@@ -12,7 +12,9 @@ public protocol AlertOnboardingDelegate {
     func alertOnboardingSkipped(_ currentStep: Int, maxStep: Int)
     func alertOnboardingCompleted()
     func alertOnboardingNext(_ nextStep: Int)
+    func alertOnboardingPrev(_ prevStep: Int)
     func alertOnboardingAllowedToContinue(_ completion: ((Bool) -> Void)?)
+    func alertOnboardingAllowedToGoBack(_ completion: ((Bool) -> Void)?)
 }
 
 open class AlertOnboarding: UIView, AlertPageViewDelegate {
@@ -146,7 +148,7 @@ open class AlertOnboarding: UIView, AlertPageViewDelegate {
         
         self.buttonBottom = UIButton(frame: .zero)
         self.buttonBottom.titleLabel?.font = UIFont(name: "Avenir-Black", size: 15)
-        self.buttonBottom.addTarget(self, action: #selector(AlertOnboarding.onClick), for: .touchUpInside)
+        self.buttonBottom.addTarget(self, action: #selector(AlertOnboarding.onContinue), for: .touchUpInside)
         self.buttonBottom.layer.cornerRadius = cornerRadius
         
         self.legalTextView = UITextView(frame: .zero)
@@ -260,18 +262,23 @@ open class AlertOnboarding: UIView, AlertPageViewDelegate {
     
     //MARK: BUTTON ACTIONS ---------------------------------
     
-    func onClick(){
+    func onContinue(){
         // is user allowed to go to next page?
         
         self.delegate?.alertOnboardingAllowedToContinue { allowed in
-            if( allowed ){
-                self.canGoToNextPage()
-                return
-            }
+            if !allowed { return }
+            self.goToNextPage()
         }
     }
     
-    func canGoToNextPage(){
+    public func onBack(){
+        self.delegate?.alertOnboardingAllowedToGoBack { allowed in
+            if !allowed { return }
+            self.goToPrevPage()
+        }
+    }
+    
+    func goToNextPage(){
         // try to go to the next page
         // if there are no pages left,
         // close the onboarding view
@@ -280,7 +287,20 @@ open class AlertOnboarding: UIView, AlertPageViewDelegate {
         }
     }
     
+    func goToPrevPage(){
+        // try to go to the prev page
+        // if there are no pages left,
+        // close the onboarding view
+        if !self.container.prevPage() {
+            self.hide()
+        }
+    }
+    
     //MARK: ALERTPAGEVIEWDELEGATE    --------------------------------------
+    
+    func prevStep(_ step: Int) {
+        self.delegate?.alertOnboardingPrev(step)
+    }
     
     func nextStep(_ step: Int) {
         self.delegate?.alertOnboardingNext(step)
