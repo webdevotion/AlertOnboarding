@@ -125,7 +125,7 @@ class AlertChildPageViewController: UIViewController {
                                                                   toItem: self.view,
                                                                   attribute: .bottom,
                                                                   multiplier: 1.0,
-                                                                  constant: -34)
+                                                                  constant: 0)
             bottomContraintsForContainer.identifier = "yAxisForFormContainer"
             
             let leftContraintsForContainer = NSLayoutConstraint.init(item: self.contentContainer,
@@ -216,7 +216,7 @@ class AlertChildPageViewController: UIViewController {
                                                                      toItem: self.contentContainer,
                                                                      attribute: .top,
                                                                      multiplier: 1.0,
-                                                                     constant: -34)
+                                                                     constant: 0)
             
             NSLayoutConstraint.activate([heightConstraintsForContainerImageContainer, bottomContraintsForContainerImageContainer])
             
