@@ -314,7 +314,9 @@ class AlertPageViewController: UIViewController, UIPageViewControllerDataSource,
         //self.pageController.dataSource = self
         self.pageController.delegate = self
         
+        self.pageController.willMove(toParentViewController: self)
         self.addChildViewController(self.pageController)
+        self.pageController.didMove(toParentViewController: self)
     }
     
     //MARK: Called after notification orientation changement

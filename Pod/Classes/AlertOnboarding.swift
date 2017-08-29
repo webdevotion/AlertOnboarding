@@ -208,7 +208,7 @@ open class AlertOnboarding: UIView, AlertPageViewDelegate {
         // let cHeight = heightForAlertView - heightConstraintForButtonBottom.constant -
         // let heightConstraintForContainer = NSLayoutConstraint.init(item: self.container.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: cHeight)
         let widthConstraintForContainer     = NSLayoutConstraint(item: self.container.view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: widthForAlertView)
-        let pinContraintsForContainer1      = NSLayoutConstraint(item: self.container.view, attribute: .bottom, relatedBy: .equal, toItem: self.buttonBottom, attribute: .top, multiplier: 1.0, constant: -12.0)
+        let pinContraintsForContainer1      = NSLayoutConstraint(item: self.container.view, attribute: .bottom, relatedBy: .equal, toItem: self.buttonBottom, attribute: .top, multiplier: 1.0, constant: -102.0)
         let pinContraintsForContainer2      = NSLayoutConstraint(item: self.container.view, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: 0.0)
         
         //Constraints for background
