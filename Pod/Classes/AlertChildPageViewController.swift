@@ -183,7 +183,7 @@ class AlertChildPageViewController: UIViewController {
                                                                   toItem: self.view,
                                                                   attribute: .bottom,
                                                                   multiplier: 1.0,
-                                                                  constant: -34)
+                                                                  constant: 0)
             
             let leftContraintsForContainerSub = NSLayoutConstraint.init(item: subView,
                                                                      attribute: .left,
